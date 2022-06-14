@@ -18,24 +18,23 @@ const idToken = authCtx.idToken;
   return (
     <Fragment>
       <Navbar />
-      {idToken ? (
+
+      {!!idToken ? (
         <Switch>
-          <Route path="/">
+          <Route path={"/"} exact>
             <Home />
           </Route>
-          <Route path="*">
-            {" "}
-            <Redirect to="/" />
+          <Route path={"*"}>
+            <Redirect to={"/"} />
           </Route>
         </Switch>
       ) : (
         <Switch>
-          <Route path="/login">
+          <Route path="/" exact>
             <Login />
           </Route>
-          <Route path="*">
-            {" "}
-            <Redirect to="/login" />
+          <Route path={"*"}>
+            <Redirect to={"/"} />
           </Route>
         </Switch>
       )}
