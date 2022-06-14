@@ -1,0 +1,58 @@
+.backdrop{
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background-color: rgba(240, 240, 240,0.1);
+}
+
+.modal{
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ -webkit-transform: translate(-50%, -50%);
+ -moz-transform: translate(-50%, -50%);
+ -ms-transform: translate(-50%, -50%);
+ -o-transform: translate(-50%, -50%);
+ margin: 3rem auto;
+ width: 95%;
+ max-width: 35rem;
+ height: 60vh;
+ border-radius: 6px;
+ -webkit-border-radius: 6px;
+ -moz-border-radius: 6px;
+ -ms-border-radius: 6px;
+ -o-border-radius: 6px;
+ 
+}
+.modal h1 {
+ text-align: center;
+}
+.modal form{
+ /* height: 60vh;
+ width: 60vh; */
+text-align: center;
+}
+
+.control{
+display: grid;
+grid-template-columns: 1fr 1fr;
+justify-content: space-between;
+}
+
+.control input {
+  font: inherit;
+  min-width: 20rem;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid rgba(40, 24, 121, 0.3);
+  text-align: left;
+  padding: 0.25rem;
+}
+.btn{
+ background-color: #3089d1;
+ color: #fff;
+ 
+}

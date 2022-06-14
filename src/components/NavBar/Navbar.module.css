@@ -1,0 +1,46 @@
+.header{
+height: 3.5rem;
+padding: 1rem;
+background-color: black;
+display: grid;
+grid-template-columns: 200px 1fr;
+justify-content: space-between;
+align-items: baseline;
+margin: 0 auto;
+}
+
+.logo h3{
+ font-size: 2rem;
+ margin: 0;
+ color: aliceblue;
+}
+.logo a{
+ text-decoration: none;
+}
+.nav ul{
+ list-style: none;
+ display: flex;
+ justify-content: right;
+ align-items: center;
+}
+.nav li{
+ margin-right: 2rem;
+}
+
+.nav a{
+ text-decoration: none;
+ color: aliceblue;
+ font-size: 1.2rem;
+}
+
+@media screen and (max-width:992px) {
+ .nav a{
+ font-size: 1rem;
+}
+}
+.nav a:hover,
+.nav a:active,
+.nav a.active {
+  color: rgba(240, 248, 255, 0.6);
+}
+
