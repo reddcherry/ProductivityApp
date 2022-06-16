@@ -1,7 +1,7 @@
 import HomeComp from "../components/Home/HomeComp"
 
 const Home = ()=>{
- return <Home/>
+ return <HomeComp/>
 }
 
 export default Home

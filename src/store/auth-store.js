@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import React from "react";
 
 const AuthContext = React.createContext({
@@ -12,7 +12,7 @@ export default AuthContext
 
 
 export const AuthProvider = props=>{
-const [idToken, setIdToken]= useState('abc')
+const [idToken, setIdToken]= useState('')
 
  const logInFn=async (email, password, userWantsSignin)=>{
 const KEY = "AIzaSyCR3Dl9QN8gQlfO5tdmxhvzIW4D81dm3uk";
@@ -31,21 +31,27 @@ headers:{
  'content-type' :'application/json'
 }
  })
-
  const data = await resp.json();
- const respId = data ? data.idToken : '';
- setIdToken(respId)
  if(data.error){
   throw new Error(data.error.message)
  } 
+ const respId =  data.idToken;
+ setIdToken(respId);
+ localStorage.setItem('idToken', respId)
 }
  catch(err){
   alert(err);
  }
 } 
 const logOutFn=()=>{
- 
+ setIdToken('')
+ localStorage.clear('idToken')
 }
+
+useEffect(()=>{
+const localId = localStorage.getItem('idToken');
+localId && setIdToken(localId)
+},[])
 
 const AuthObject = {
   idToken:idToken,
@@ -53,7 +59,7 @@ const AuthObject = {
   logOutFn,
 };
 
-console.log(idToken);
+
  return <AuthContext.Provider value={AuthObject}>
   {props.children}
  </AuthContext.Provider>

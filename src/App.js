@@ -13,32 +13,30 @@ import Home from './pages/Home';
 function App() {
 const authCtx = useContext(AuthContext)
 const idToken = authCtx.idToken;
-  console.log(authCtx);
+
+
 
   return (
     <Fragment>
       <Navbar />
-
-      {!!idToken ? (
-        <Switch>
-          <Route path={"/"} exact>
-            <Home />
-          </Route>
-          <Route path={"*"}>
-            <Redirect to={"/"} />
-          </Route>
-        </Switch>
-      ) : (
-        <Switch>
-          <Route path="/" exact>
-            <Login />
-          </Route>
-          <Route path={"*"}>
-            <Redirect to={"/"} />
-          </Route>
-        </Switch>
-      )}
-    </Fragment>
+{ !idToken?     <Switch>
+        <Route path={'/login'} exact>
+          <Login/>
+        </Route>
+        <Route path={'*'}>
+          <Redirect to = {'/login'}/>
+        </Route>
+      </Switch> : 
+      <Switch>
+        <Route path={'/home'} exact>
+          <Home/>
+        </Route>
+        <Route path={'*'}>
+  <Redirect to = {'/home'}/>
+        </Route>
+      </Switch>
+      }
+</Fragment>
   );
 }
 
