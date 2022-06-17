@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import { AuthProvider} from './store/auth-store';
 import AuthContext from "./store/auth-store";
 import Home from './pages/Home';
+import ToDo from './pages/ToDo';
 
 
 
@@ -23,17 +24,20 @@ const idToken = authCtx.idToken;
         <Route path={'/login'} exact>
           <Login/>
         </Route>
-        <Route path={'*'}>
+        {/* <Route path={'*'}>
           <Redirect to = {'/login'}/>
-        </Route>
+        </Route> */}
       </Switch> : 
       <Switch>
         <Route path={'/home'} exact>
           <Home/>
         </Route>
-        <Route path={'*'}>
-  <Redirect to = {'/home'}/>
+        <Route path={'/todo'}>
+          <ToDo/>
         </Route>
+        {/* <Route path={'*'}>
+  <Redirect to = {'/home'}/>
+        </Route> */}
       </Switch>
       }
 </Fragment>

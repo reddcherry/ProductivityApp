@@ -1,0 +1,52 @@
+.taskContainer{
+background-color: hsl(0, 0%, 0%);
+opacity: 0.9;
+max-width: 100%;
+margin: 0.5rem;
+display: grid;
+padding: 0;
+grid-template-columns: 1fr 1fr 10fr;
+border-radius: 6px;
+height: 2rem;
+}
+
+@media screen and (min-width:920px) {
+ .taskContainer{
+ grid-template-columns: 1fr 1fr 6fr 2fr;
+}
+}
+.taskContainer h4{
+ color: aliceblue;
+ margin-top: auto;
+ margin-bottom: auto;
+ text-align: center;
+ font-weight: 400;
+}
+.head{
+ text-align: center;
+}
+.taskContainer button{
+ cursor: pointer;
+}
+.card{
+ box-shadow: 0 2px 4px rgba(200, 200, 200, 0.3);
+ background-color: rgb(240, 248, 255);
+ border-radius: 6px;
+ -webkit-border-radius: 6px;
+ -moz-border-radius: 6px;
+ -ms-border-radius: 6px;
+ -o-border-radius: 6px;
+ max-width: 80vw;
+ margin-left: auto;
+ margin-right: auto;
+ margin-top: 0.25rem;
+ margin-bottom: 0.25rem;
+ min-width: 5rem;
+ padding-left: 1rem;
+ padding-right: 1rem;
+ text-align: center;
+}
+
+.completed{
+ background-color: rgba(200, 200, 200, 0.3);
+}

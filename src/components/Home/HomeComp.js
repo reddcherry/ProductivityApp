@@ -9,11 +9,15 @@ import Diary from "./Diary.jpg";
 import toDo from "./toDo.jpg";
 import ExpenseTracker from "./ExpenseTracker.jpg";
 import { Fragment, useCallback, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const HomeComp = () => {
   const [diary, setDiary] = useState(0);
   const [toDO, setToDo] = useState(100);
   const [expense, setExpense] = useState(200);
+  const history =useHistory();
+  const [loading, setLoading] = useState(false)
 
   const goRighthandler = useCallback(() => {
     setDiary((prevState) => (prevState > -200 ? prevState - 100 : 0));
@@ -27,14 +31,18 @@ const HomeComp = () => {
     setExpense((prevState) => (prevState < 200 ? prevState + 100 : 0));
   };
 
+  const toDoHandler=()=>{
+    setLoading(true);
+    setTimeout(()=>{history.push('/todo')}, 500)
+  }
+
   useEffect(() => {
     const interval = setInterval(goRighthandler, 5000);
 
     return () => clearInterval(interval);
   }, [goRighthandler]);
 
-  return (
-    <Fragment>
+  return (<Fragment>
       <div className={classes.imageContainer}>
         <button onClick={goLeftHandler} className={classes.left}>
           <FontAwesomeIcon icon={faChevronLeft} />
@@ -50,7 +58,7 @@ const HomeComp = () => {
           className={classes.secondImageCont}
           style={{ transform: `translate(${toDO}%, -100%)` }}
         >
-          <button className={"btn " + classes.btn}>To DO List</button>
+          <button onClick={toDoHandler} className={"btn " + classes.btn}>To DO List</button>
           <img src={toDo} alt="To Do Image" className={classes.image}></img>
         </div>
         <div
@@ -74,23 +82,4 @@ const HomeComp = () => {
 
 export default HomeComp;
 
-// <div className={classes.imageContainer}>
-//       <button className={classes.left}>
-//         <FontAwesomeIcon icon={faChevronLeft} />
-//       </button>
-//       <button className={"btn " + classes.btn}>Write Today's Diary</button>
-//       <img src={Diary} alt="Diary Image" className={classes.image} />
-//       <button className={classes.right}>
-//         <FontAwesomeIcon icon={faChevronRight} />
-//       </button>
-//     </div>
-//     <div className={classes.imageContainer}>
-//       <button className={classes.left}>
-//         <FontAwesomeIcon icon={faChevronLeft} />
-//       </button>
-//       <button className={"btn " + classes.btn}>Write Today's Diary</button>
-//       <img src={Diary} alt="Diary Image" className={classes.image} />
-//       <button className={classes.right}>
-//         <FontAwesomeIcon icon={faChevronRight} />
-//       </button>
-//     </div>
+

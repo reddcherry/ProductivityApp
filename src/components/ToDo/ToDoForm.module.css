@@ -1,0 +1,46 @@
+
+ .control1{
+display: grid;
+grid-template-columns: 1fr 3fr;
+justify-content: space-between;
+text-align: center;
+}
+
+.control2{
+ display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+justify-content: space-between;
+text-align: center;
+}
+
+.input{
+ margin-top: 10px;
+ text-align: center;
+ padding-top: 10px;
+}
+
+.mainContainer{
+ width: 80vw;
+ max-width: 912px;
+ margin-left: auto;
+ margin-right: auto;
+ z-index: -100;
+ transition: all 1s linear;
+ -webkit-transition: all .5s linear;
+ -moz-transition: all 1s linear;
+ -ms-transition: all 1s linear;
+ -o-transition: all 1s linear;
+}
+
+.addBtn {
+ margin-top: 15px;
+ width: 94%;
+ font-size: 2rem;
+ margin-left: 2rem;
+ margin-right: 2rem;
+ transition: all 0.3s ease-out;
+ -webkit-transition: all 0.3s ease-out;
+ -moz-transition: all 0.3s ease-out;
+ -ms-transition: all 0.3s ease-out;
+ -o-transition: all 0.3s ease-out;
+}
