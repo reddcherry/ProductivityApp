@@ -9,15 +9,18 @@ import Diary from "./Diary.jpg";
 import toDo from "./toDo.jpg";
 import ExpenseTracker from "./ExpenseTracker.jpg";
 import { Fragment, useCallback, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import LoadingSpinner from "../UI/LoadingSpinner";
 
 const HomeComp = () => {
+  const { param } = useParams();
+  console.log(param);
+
   const [diary, setDiary] = useState(0);
   const [toDO, setToDo] = useState(100);
   const [expense, setExpense] = useState(200);
-  const history =useHistory();
-  const [loading, setLoading] = useState(false)
+  const history = useHistory();
+  const [loading, setLoading] = useState(false);
 
   const goRighthandler = useCallback(() => {
     setDiary((prevState) => (prevState > -200 ? prevState - 100 : 0));
@@ -31,10 +34,12 @@ const HomeComp = () => {
     setExpense((prevState) => (prevState < 200 ? prevState + 100 : 0));
   };
 
-  const toDoHandler=()=>{
+  const toDoHandler = () => {
     setLoading(true);
-    setTimeout(()=>{history.push('/todo')}, 500)
-  }
+    setTimeout(() => {
+      history.push("/todo");
+    }, 500);
+  };
 
   useEffect(() => {
     const interval = setInterval(goRighthandler, 5000);
@@ -42,8 +47,9 @@ const HomeComp = () => {
     return () => clearInterval(interval);
   }, [goRighthandler]);
 
-  return (<Fragment>
-      <div className={classes.imageContainer}>
+  return (
+    <Fragment>
+      <div className={classes.imageContainer} onAbort>
         <button onClick={goLeftHandler} className={classes.left}>
           <FontAwesomeIcon icon={faChevronLeft} />
         </button>
@@ -58,7 +64,9 @@ const HomeComp = () => {
           className={classes.secondImageCont}
           style={{ transform: `translate(${toDO}%, -100%)` }}
         >
-          <button onClick={toDoHandler} className={"btn " + classes.btn}>To DO List</button>
+          <button onClick={toDoHandler} className={"btn " + classes.btn}>
+            To DO List
+          </button>
           <img src={toDo} alt="To Do Image" className={classes.image}></img>
         </div>
         <div
@@ -81,5 +89,3 @@ const HomeComp = () => {
 };
 
 export default HomeComp;
-
-
