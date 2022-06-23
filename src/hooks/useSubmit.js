@@ -1,10 +1,12 @@
-const useSubmit = (submissionType) => {
 
+
+const useSubmit = (submissionType) => {
+const email = localStorage.getItem("email").slice(0, -4)
 
   const submitter = async (content="", date, method='') => {
     try {
       const resp = await fetch(
-        `https://productivity-33ac4-default-rtdb.firebaseio.com/${submissionType}/${date}.json`,
+        `https://productivity-33ac4-default-rtdb.firebaseio.com/${email}/${submissionType}/${date}.json`,
         method?{
           method: method,
           body: JSON.stringify({
@@ -17,7 +19,6 @@ const useSubmit = (submissionType) => {
         }:{method:"GET"}
       );
         const data = await resp.json();
-        console.log(data);
         if(!resp.ok) throw new Error("Something Went Wrong");
         return data;
     } catch (e) {

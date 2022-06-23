@@ -1,6 +1,6 @@
 import { Fragment, useReducer, useEffect, useState } from "react";
-import ToDoForm from "./ToDoForm";
 import List from "./List";
+import Form from "../Form";
 
 const defaultObj = { tasks: [], completedTasks: [] };
 
@@ -77,7 +77,7 @@ const ToDoComp = (props) => {
 
   return (
     <Fragment>
-      <ToDoForm addTask={addTask} feedback={feedback} />
+      <Form type={"Goal"} add={addTask} feedback={feedback} />
 
       <List
         tasks={taskList.tasks}

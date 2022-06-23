@@ -26,7 +26,7 @@ const taskList = props.tasks.map((task) => {
       {props.tasks.length > 0 ? (
         taskList
       ) : (
-        <h4 className={classes.head}>No {props.goalStatus}...</h4>
+        <h4 className={classes.head}  >No {props.goalStatus}...</h4>
       )}
     </Card>
   );

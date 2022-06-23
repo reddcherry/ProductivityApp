@@ -6,13 +6,14 @@ const AuthContext = React.createContext({
   idToken: "",
   logInFn: () => {},
   logOutFn: () => {},
+  email:""
 });
 
 export default AuthContext;
 
 export const AuthProvider = (props) => {
-  const history = useHistory();
   const [idToken, setIdToken] = useState("");
+  const[email, setEmail] = useState("");
   const logInFn = async (email, password, userWantsSignin) => {
     const KEY = "AIzaSyCR3Dl9QN8gQlfO5tdmxhvzIW4D81dm3uk";
     const url = userWantsSignin
@@ -37,7 +38,9 @@ export const AuthProvider = (props) => {
       }
       const respId = data.idToken;
       setIdToken(respId);
+      setEmail(data.email)
       localStorage.setItem("idToken", respId);
+      localStorage.setItem("email", data.email)
     } catch (err) {
       alert(err);
     }
@@ -45,6 +48,7 @@ export const AuthProvider = (props) => {
   const logOutFn = () => {
     setIdToken("");
     localStorage.clear("idToken");
+    localStorage.clear("email")
   };
 
   useEffect(() => {
@@ -58,6 +62,7 @@ export const AuthProvider = (props) => {
     idToken: idToken,
     logInFn,
     logOutFn,
+    email
   };
 
   return (

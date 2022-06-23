@@ -1,0 +1,60 @@
+.expenseContainer{
+background-color: hsl(0, 0%, 0%);
+opacity: 0.9;
+max-width: 60%;
+margin: auto;
+margin-bottom: 0.5rem;
+display: grid;
+padding: 0;
+grid-template-columns: 1fr 1fr 1fr;
+border-radius: 6px;
+height: 3rem;
+}
+
+@media screen and (min-width:920px) {
+ .expenseContainer{
+ grid-template-columns: 1fr 1fr 1fr;
+}
+}
+@media screen and (max-width:920px) {
+ .expenseContainer{
+  height: 6rem;
+ }
+}
+.expenseContainer h4{
+ color: aliceblue;
+ margin-top: auto;
+ margin-bottom: auto;
+ text-align: center;
+ font-weight: 400;
+ margin-left: 1rem;
+}
+.head{
+ text-align: center;
+}
+.expenseContainer button{
+ cursor: pointer;
+}
+.card{
+ box-shadow: 0 2px 4px rgba(200, 200, 200, 0.3);
+ background-color: rgb(240, 248, 255);
+ border-radius: 6px;
+ -webkit-border-radius: 6px;
+ -moz-border-radius: 6px;
+ -ms-border-radius: 6px;
+ -o-border-radius: 6px;
+ max-width: 80vw;
+ margin-left: auto;
+ margin-right: auto;
+ margin-top: 0.25rem;
+ margin-bottom: 0.25rem;
+ min-width: 5rem;
+ padding-left: 1rem;
+ padding-right: 1rem;
+align-content: center;
+ text-align: center;
+}
+
+/* .completed{
+ background-color: rgba(200, 200, 200, 0.3);
+} */

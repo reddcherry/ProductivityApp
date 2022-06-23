@@ -2,7 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import Card from "../UI/Card";
 import classes from "./DiaryComp.module.css";
 import DiaryForm from "./DiaryForm";
-import useSubmit from "../../hooks/submitHook";
+import useSubmit from "../../hooks/useSubmit";
 
 const DiaryComp = (props) => {
   const dateInputRef = useRef();
@@ -24,7 +24,8 @@ const DiaryComp = (props) => {
       return;
     }
     submitter(diaryContent, selectedDate, "POST");
-
+    alert(`Your Diary for ${selectedDate} is Saved.`)
+    diaryFormHandler();
     diaryInputRef.current.value = "";
   };
 
@@ -58,6 +59,7 @@ const DiaryComp = (props) => {
         <div className={classes.readDiary}>
           <h1>Date: {readDate}</h1>
           <p>{readContent}</p>
+          <button onClick={setReadContent.bind("", "")} className="btn">Go Back</button>
         </div>
       ) : (
         <Fragment>
